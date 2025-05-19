@@ -1,0 +1,26 @@
+##For linux ubuntu##
+
+
+download all the package https://www.st.com/en/development-tools/stm32cubemx.html
+
+sudo dpkg -i *.deb
+
+or sometime need
+(chmod +x st-stm32cubeide_1.18.1_24813_20250409_2138_amd64.deb_bundle.sh
+
+sudo st-stm32cubeide_1.18.1_24813_20250409_2138_amd64.deb_bundle.sh
+)
+
+
+# also need these
+
+sudo apt update
+sudo apt install stlink-tools
+st-info --version
+
+
+
+ sudo apt install openocd
+ 
+
+ st-info --probe  //to check the stm32 blueboard connected or not

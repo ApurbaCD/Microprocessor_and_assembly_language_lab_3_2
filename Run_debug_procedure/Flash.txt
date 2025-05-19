@@ -1,0 +1,49 @@
+
+
+flash command linux
+
+
+
+ st-flash erase
+
+or
+
+openocd -f interface/stlink.cfg -f target/stm32f1x.cfg \
+                           -c "init" \
+                           -c "reset halt" \
+                           -c "flash write_image erase /path/to/your_firmware.elf" \
+                           -c "verify_image /path/to/your_firmware.elf" \
+                           -c "reset run" \
+                           -c "shutdown"
+
+
+
+hardware boot
+
+After you've set BOOT0 = 1 and pressed Reset, the STM32 (e.g., Blue Pill with STM32F103C8T6) enters the built-in bootloader mode instead of running your existing code.
+Here's the full step-by-step:
+
+    Connect BOOT0 to 3.3V
+    (e.g., use a jumper or connect it manually).
+
+    Press and release the Reset button
+    This restarts the MCU while BOOT0 is high → enters System Memory (bootloader).
+
+    The MCU is now halted and waiting for a new program via USART or USB (DFU)
+
+        If you're using OpenOCD, it still uses SWD, so:
+
+            You can now flash the chip using OpenOCD without interference from running code.
+
+    After flashing is done:
+
+        Set BOOT0 = 0 (back to normal boot from flash).
+
+        Press Reset again to run your new code.
+
+Example: Flash using OpenOCD after BOOT0 procedure
+
+openocd -f interface/stlink.cfg -f target/stm32f1x.cfg -c "program your_file.elf verify reset exit"
+
+Let me know if you want help creating a quick diagram for this!
+
