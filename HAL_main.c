@@ -1,3 +1,18 @@
+//  /*This is the main code  other code will generate automatically */
+//  while (1)
+//  {
+//
+//	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
+//	  HAL_Delay(50);
+//
+//	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
+//	  HAL_Delay(50);
+//
+//
+//  }
+
+
+
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
@@ -208,3 +223,4 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+
